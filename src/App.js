@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import './App.css';
-import Test from './components/Test';
+import Card from './components/Card';
 
 import data from './data/data';
 
@@ -14,7 +14,7 @@ function App() {
 
     return (
         <div className='App'>
-            <Test questions={questions} />
+            <Card questions={questions} />
         </div>
     );
 }
