@@ -19,6 +19,13 @@ describe('<NewMessageForm />', () => {
                     value: 'New Message',
                 },
             });
+
+            fireEvent.change(getByTestId('password'), {
+                target: {
+                    value: 'New password',
+                },
+            });
+
             fireEvent.click(getByTestId('sendButton'));
         });
 
@@ -27,6 +34,10 @@ describe('<NewMessageForm />', () => {
         });
 
         it('call the send handler', () => {
+            expect(sendHandler).toHaveBeenCalledWith('New Message');
+        });
+
+        it('password', () => {
             expect(sendHandler).toHaveBeenCalledWith('New Message');
         });
     });
