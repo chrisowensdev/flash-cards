@@ -5,13 +5,13 @@ import SetCategory from './components/SetCategory';
 
 function App() {
     const [questions, setQuestions] = useState([]);
-
+    console.log('questions', questions);
     return (
         <div className='App'>
             {questions.length === 0 ? (
                 <SetCategory setQuestions={setQuestions} />
             ) : (
-                <Card questions={questions} />
+                <Card questions={questions} setQuestions={setQuestions} />
             )}
         </div>
     );

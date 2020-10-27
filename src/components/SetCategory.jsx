@@ -1,5 +1,6 @@
-import { javascriptQuestions, randomQuestions } from '../data/data';
+import { javascriptQuestions, randomQuestions, halloweenQuestions } from '../data/data';
 import styled from 'styled-components';
+import Konami from 'react-konami-code';
 
 const Button = styled.button`
     width: 100px;
@@ -9,6 +10,11 @@ const Button = styled.button`
     color: white;
     border: none;
     cursor: pointer;
+`;
+
+const HalloweenButton = styled.button`
+    background-color: #000;
+    color: orange;
 `;
 
 const SetCategory = props => {
@@ -23,6 +29,9 @@ const SetCategory = props => {
         <h1>Select Category</h1>
         <Button type="button" onClick={e => _handleClick(javascriptQuestions)}>Javascript</Button>
         <Button type="button" onClick={e => _handleClick(randomQuestions)}>Random</Button>
+        <Konami>
+            <HalloweenButton type="button" onClick={e =>_handleClick(halloweenQuestions)}>Halloween</HalloweenButton>
+        </Konami>
         </>
     )
 }

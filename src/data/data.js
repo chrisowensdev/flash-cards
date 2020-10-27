@@ -7,6 +7,7 @@ export const javascriptQuestions = [
             detail: [],
             keywords: 'slash',
         },
+        credit: '',
     },
     {
         id: 2,
@@ -33,6 +34,7 @@ export const javascriptQuestions = [
                 'undefined',
             ],
         },
+        credit: '',
     },
     {
         id: 3,
@@ -42,6 +44,7 @@ export const javascriptQuestions = [
             detail: [],
             keywords: ['nlcs', 'third round'],
         },
+        credit: '',
     },
 ];
 
@@ -53,6 +56,7 @@ export const randomQuestions = [
             summary: 'Random Summary 1',
             detail: ['Detail 1 - 1', 'Detail 2 - 2'],
         },
+        credit: '',
     },
     {
         id: 2,
@@ -61,6 +65,7 @@ export const randomQuestions = [
             summary: 'Random Summary 2',
             detail: ['Detail 2 - 1', 'Detail 2 - 2'],
         },
+        credit: '',
     },
     {
         id: 3,
@@ -69,6 +74,33 @@ export const randomQuestions = [
             summary: 'Random Summary 3',
             detail: ['Detail 3 - 1', 'Detail 3 - 2'],
         },
+        credit: '',
+    },
+];
+
+export const halloweenQuestions = [
+    {
+        id: 1,
+        question: 'What were originally used as the first Jack-o-Lanterns?',
+        answer: {
+            summary:
+                'Turnips. Originating in Ireland, people would hollow out turnips and place a lump of coal in it as a type of lantern and set it at their door as a guide for poor "Jack." Jack, legend has it, tricked the devil and wasn\'t allowed into heaven or hell, so he was cursed to wander the earth forever in the in-between. The Irish then brought this tradition to America and found that pumpkins were a far better alternative to the turnip, thus instilling an American fall tradition.',
+            detail: [],
+        },
+        credit:
+            'https://www.countryliving.com/life/entertainment/g33540100/halloween-trivia/?slide=2',
+    },
+    {
+        id: 2,
+        question:
+            'In what century did the tradition of trick or treating begin?',
+        answer: {
+            summary:
+                "The American tradition of trick or treating dates back to the 1920s but in Europe, as early as the 16th century people were known to go from door to door on Halloween night asking for food, reciting verses, wearing costumes, and warning of curses if they didn't get a warm welcome.",
+            detail: [],
+        },
+        credit:
+            'https://www.countryliving.com/life/entertainment/g33540100/halloween-trivia/?slide=3',
     },
 ];
 

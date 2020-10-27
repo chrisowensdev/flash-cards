@@ -41,7 +41,7 @@ const DetailList = styled.li`
     margin: 10px;
 `;
 
-const Cards = ({questions}) => {
+const Cards = ({questions, setQuestions}) => {
     const [currentQuestion, setCurrentQuestion] = useState({});
     const [completedQuestions, setCompletedQuestions] = useState([])
     const [upcomingQuestions, setUpcomingQuestions] = useState([]);
@@ -52,18 +52,21 @@ const Cards = ({questions}) => {
 
 
     useEffect(() => {
-        setUpcomingQuestions(questions);
+        setUpcomingQuestions([...questions]);
     }, [setUpcomingQuestions, questions]);
 
-    const _handleStart = () => {
-        setPlaying(true);
-        random = Math.floor(Math.random() * upcomingQuestions.length);
+    const upcomingQuestionFunction = (arr) => {
+        let random = Math.floor(Math.random() * upcomingQuestions.length);
         setCurrentQuestion(upcomingQuestions[random]);
         upcomingQuestions.splice(random, 1);
         setUpcomingQuestions(upcomingQuestions);
     }
 
-    let random;
+    const _handleStart = () => {
+        setPlaying(true);
+        upcomingQuestionFunction(upcomingQuestions);
+    }
+
 
     const _handleFlip = () => {
         setFlipped(!flipped);
@@ -72,19 +75,16 @@ const Cards = ({questions}) => {
     const nextQuestion = () => {
         if (upcomingQuestions.length > 0) {
         setCompletedQuestions([...completedQuestions, currentQuestion]);
-        random = Math.floor(Math.random() * upcomingQuestions.length);
-        setCurrentQuestion(upcomingQuestions[random]);
-        upcomingQuestions.splice(random, 1);
-        setUpcomingQuestions(upcomingQuestions);
+        upcomingQuestionFunction(upcomingQuestions);
         } else {
             setCompletedQuestions([...completedQuestions,currentQuestion]);
             setDone(true);
         }
     }
 
-    console.log('current', currentQuestion);
-    console.log('upcoming', upcomingQuestions);
-    console.log('complete',completedQuestions);
+    //console.log('current', currentQuestion);
+    //console.log('upcoming', upcomingQuestions);
+    //console.log('complete',completedQuestions);
 
 
     return (
@@ -96,7 +96,7 @@ const Cards = ({questions}) => {
                 (
                 <>
                     {!!currentQuestion && !done ? (<p>{currentQuestion.question}</p>) : (<Complete questions={completedQuestions}/>)}
-                    <CardButton type="button" onClick={_handleFlip}>See Answer</CardButton>
+                    <CardButton type="button" onClick={_handleFlip} disabled={done}>See Answer</CardButton>
                 </>
                 )}
             </StyledCard>
@@ -121,9 +121,10 @@ const Cards = ({questions}) => {
             </StyledCard>
         
         </ReactCardFlip>
-                        <button type="button" onClick={nextQuestion} disabled={done}>
+        {done ? (<button type="button" onClick={e => setQuestions([])}>Start Over</button>) : (<button type="button" onClick={nextQuestion} disabled={!playing}>
                             Next Question
-                        </button>
+                        </button>)}
+                        
             <p>Completed: {completedQuestions.length}</p>
             <p>Upcoming: {upcomingQuestions.length}</p>
         </>
