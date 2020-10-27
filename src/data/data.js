@@ -1,13 +1,15 @@
 export const javascriptQuestions = [
     {
         id: 1,
-        question: 'Who is the greatest guitarist ever?',
+        question: 'What is JavaScript?',
         answer: {
-            summary: 'Slash',
+            summary:
+                'JavaScript is a client-side as well as server side scripting language that can be inserted into HTML pages and is understood by web browsers. JavaScript is also an Object based Programming language',
             detail: [],
-            keywords: 'slash',
+            keywords: [],
         },
-        credit: '',
+        credit:
+            'https://www.guru99.com/javascript-interview-questions-answers.html',
     },
     {
         id: 2,
@@ -38,13 +40,38 @@ export const javascriptQuestions = [
     },
     {
         id: 3,
-        question: 'How far did the Braves go in the playoffs?',
+        question: 'What are undeclared and undefined variables?',
         answer: {
-            summary: 'They lost in the NLCS',
+            summary:
+                'Undeclared variables are those that do not exist in a program and are not declared. If the program tries to read the value of an undeclared variable, then a runtime error is encountered. Undefined variables are those that are declared in the program but have not been given any value. If the program tries to read the value of an undefined variable, an undefined value is returned.',
             detail: [],
-            keywords: ['nlcs', 'third round'],
+            keywords: [],
         },
-        credit: '',
+        credit:
+            'https://www.guru99.com/javascript-interview-questions-answers.html',
+    },
+    {
+        id: 4,
+        question: 'What is === operator?',
+        answer: {
+            summary:
+                '=== is called as strict equality operator which returns true when the two operands are having the same value without any type conversion.',
+            detail: [],
+            keywords: [],
+        },
+        credit:
+            'https://www.guru99.com/javascript-interview-questions-answers.html',
+    },
+    {
+        id: 5,
+        question: 'What are all the looping structures in JavaScript?',
+        answer: {
+            summary: 'Following are looping structures in Javascript:',
+            detail: ['For', 'While', 'do-while'],
+            keywords: [],
+        },
+        credit:
+            'https://www.guru99.com/javascript-interview-questions-answers.html',
     },
 ];
 
