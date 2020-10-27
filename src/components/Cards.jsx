@@ -19,7 +19,7 @@ const StyledCard = styled.div`
     border-radius: 4px;
     background-color: #254e58;
     color: #EDF5E1;
-    width: 400px;
+    max-width: 400px;
     height: 500px;
     margin: 20px auto;
     position: relative;
@@ -36,12 +36,18 @@ const CardButton = styled.button`
     padding: 5px;
 `;
 
-const Card = ({questions}) => {
+const DetailList = styled.li`
+    text-align: left;
+    margin: 10px;
+`;
+
+const Cards = ({questions}) => {
     const [currentQuestion, setCurrentQuestion] = useState({});
     const [completedQuestions, setCompletedQuestions] = useState([])
     const [upcomingQuestions, setUpcomingQuestions] = useState([]);
     const [flipped, setFlipped] = useState(false);
     const [playing, setPlaying] = useState(false);
+    const [done, setDone] = useState(false);
 
 
 
@@ -72,6 +78,7 @@ const Card = ({questions}) => {
         setUpcomingQuestions(upcomingQuestions);
         } else {
             setCompletedQuestions([...completedQuestions,currentQuestion]);
+            setDone(true);
         }
     }
 
@@ -88,7 +95,7 @@ const Card = ({questions}) => {
                 (<StartButton type="button" onClick={_handleStart}>Start</StartButton>) : 
                 (
                 <>
-                    {!!currentQuestion ? (<p>{currentQuestion.question}</p>) : (<Complete questions={completedQuestions}/>)}
+                    {!!currentQuestion && !done ? (<p>{currentQuestion.question}</p>) : (<Complete questions={completedQuestions}/>)}
                     <CardButton type="button" onClick={_handleFlip}>See Answer</CardButton>
                 </>
                 )}
@@ -99,12 +106,13 @@ const Card = ({questions}) => {
                 <>
                     {!!currentQuestion ? (<p>{currentQuestion.answer.summary}</p>) : (<p>No more answers</p>)}
                     {!!currentQuestion ? 
-                    (
-                        currentQuestion.answer.detail.map((list, index) => {
+                    (   <ul>
+                        {currentQuestion.answer.detail.map((list, index) => {
                             return (
-                                <li key={index}>{list}</li>
+                                <DetailList key={index}>{list}</DetailList>
                             )
-                        })
+                        })}
+                        </ul>
                     ) : ("")}
                     <CardButton type="button" onClick={_handleFlip}>See Question</CardButton>
                 </>
@@ -113,13 +121,13 @@ const Card = ({questions}) => {
             </StyledCard>
         
         </ReactCardFlip>
-                        <button type="button" onClick={nextQuestion}>
+                        <button type="button" onClick={nextQuestion} disabled={done}>
                             Next Question
                         </button>
-            <h1>{completedQuestions.length}</h1>
-            <h1>{upcomingQuestions.length}</h1>
+            <p>Completed: {completedQuestions.length}</p>
+            <p>Upcoming: {upcomingQuestions.length}</p>
         </>
     )
 }
 
-export default Card;
+export default Cards;

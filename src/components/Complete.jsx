@@ -5,7 +5,7 @@ const Complete = props => {
         <h1>Done</h1>
         <ul>
             {questions.map(ques => {
-                return (<li>{ques.question}</li>)
+                return (<li key={ques.id}>{ques.question}</li>)
             })}
         </ul>
         </>

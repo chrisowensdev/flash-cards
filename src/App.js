@@ -1,20 +1,18 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import './App.css';
 import Card from './components/Cards';
-
-import data from './data/data';
+import SetCategory from './components/SetCategory';
 
 function App() {
     const [questions, setQuestions] = useState([]);
 
-    useEffect(() => {
-        setQuestions(data);
-        console.log(data);
-    }, [setQuestions]);
-
     return (
         <div className='App'>
-            <Card questions={questions} />
+            {questions.length === 0 ? (
+                <SetCategory setQuestions={setQuestions} />
+            ) : (
+                <Card questions={questions} />
+            )}
         </div>
     );
 }

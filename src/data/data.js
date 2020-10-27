@@ -1,4 +1,4 @@
-const cardInfo = [
+export const javascriptQuestions = [
     {
         id: 1,
         question: 'Who is the greatest guitarist ever?',
@@ -45,4 +45,44 @@ const cardInfo = [
     },
 ];
 
-export default cardInfo;
+export const randomQuestions = [
+    {
+        id: 1,
+        question: 'Random Question 1',
+        answer: {
+            summary: 'Random Summary 1',
+            detail: ['Detail 1 - 1', 'Detail 2 - 2'],
+        },
+    },
+    {
+        id: 2,
+        question: 'Random Question 2',
+        answer: {
+            summary: 'Random Summary 2',
+            detail: ['Detail 2 - 1', 'Detail 2 - 2'],
+        },
+    },
+    {
+        id: 3,
+        question: 'Random Question 3',
+        answer: {
+            summary: 'Random Summary 3',
+            detail: ['Detail 3 - 1', 'Detail 3 - 2'],
+        },
+    },
+];
+
+export const users = [
+    {
+        id: 1,
+        name: 'Chris',
+        username: 'chris123',
+        password: 'chris123',
+    },
+    {
+        id: 2,
+        name: 'Slash',
+        username: 'slash123',
+        password: 'slash123',
+    },
+];
