@@ -141,7 +141,7 @@ const NavBar = props => {
             <LoginForm onSubmit={e => _handleSubmit(e)}>
                 <Close onClick={e => _closeClick()}>X</Close>
                 <LoginHeader>Login</LoginHeader>
-                <Input type="text" name="username" onChange={e => _handleUsername(e.target.value)}placeholder="Username" value={username}/>
+                <Input type="text" name="username" onChange={e => _handleUsername(e.target.value)}placeholder="Username" data-testid="messageText" value={username}/>
                 <Input type="password" name="password" onChange={e => _handlePassword(e.target.value)}placeholder="Password" value={password}/>
                 <Button type="submit" data-testid="sendButton" >Login</Button>
             </LoginForm>

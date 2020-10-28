@@ -26,7 +26,8 @@ const SetCategory = props => {
 
     return (
         <>
-        <h1>Select Category</h1>
+        <h1>Welcome</h1>
+        <h3>Select Category</h3>
         <Button type="button" onClick={e => _handleClick(javascriptQuestions)}>Javascript</Button>
         <Button type="button" onClick={e => _handleClick(randomQuestions)}>Random</Button>
         <Konami>
