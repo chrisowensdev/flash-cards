@@ -1,4 +1,5 @@
 import {useState, useEffect} from 'react';
+import { Link } from 'react-router-dom';
 
 const AddCard = props => {
     const [categoryArray, setCategoriesArray] = useState([])
@@ -12,6 +13,7 @@ const AddCard = props => {
             const response = await fetch('http://localhost:3333/api/categories');
             const categories = await response.json();
             setCategoriesArray(categories)
+            setCategory(categories[0]._id);
         })();
         }, [setCategoriesArray]);
 
@@ -33,6 +35,18 @@ const AddCard = props => {
     
     const _handleSubmit = async (e) => {
         e.preventDefault();
+        let data = {
+            title,
+            question,
+            answer,
+            category
+        };
+
+        fetch('http://localhost:3333/api/cards', {
+            method: 'POST',
+            headers: { 'Content-Type' : 'application/json' },
+            body: JSON.stringify(data)
+        })
     }
 
     return (
@@ -49,6 +63,7 @@ const AddCard = props => {
         </select>
         <button type="submit">Add Card</button>
         </form>
+        <Link to="/">Go Back</Link>
         </>
     )
 }
