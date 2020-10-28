@@ -129,6 +129,41 @@ export const halloweenQuestions = [
         credit:
             'https://www.countryliving.com/life/entertainment/g33540100/halloween-trivia/?slide=3',
     },
+    {
+        id: 3,
+        question:
+            "In It's the Great Pumpkin, Charlie Brown, who does Linus mistake for the Great Pumpkin?",
+        answer: {
+            summary:
+                "Snoopy. Linus faints after seeing a shadowy figure rise in the pumpkin patch, thinking it's the Great Pumpkin. Instead, it was only Snoopy, which Sally sees and gets mad at Linus for making her miss out on all the Halloween fun to wait in the pumpkin patch.",
+            detail: [],
+        },
+        credit:
+            'https://www.countryliving.com/life/entertainment/g33540100/halloween-trivia/?slide=4',
+    },
+    {
+        id: 4,
+        question:
+            'What Halloween radio drama caused a mass panic on October 30, 1938?',
+        answer: {
+            summary:
+                "War of the Worlds. Originally a special Halloween episode of The Mercury Theatre on the Air, it was directed and performed by actor Orson Wells who adapted it from H.G. Wells' original novel. Whether or not it actually cause mass hysteria and panic is up for debate because apparently there weren't that many listeners.",
+            detail: [],
+        },
+        credit:
+            'https://www.countryliving.com/life/entertainment/g33540100/halloween-trivia/?slide=7',
+    },
+    {
+        id: 5,
+        question: 'How many colors of M&Ms are there in a normal bag?',
+        answer: {
+            summary:
+                'Six. The colors in a regular bag of M&Ms are red, orange, yellow, green, blue, and brown. In 1995, consumers were asked to vote on what color they wanted to replace the original tan M&Ms. Blue won and was introduced later that same year.',
+            detail: [],
+        },
+        credit:
+            'https://www.countryliving.com/life/entertainment/g33540100/halloween-trivia/?slide=8',
+    },
 ];
 
 export const users = [

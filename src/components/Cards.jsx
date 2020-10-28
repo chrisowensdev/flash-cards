@@ -8,6 +8,7 @@ const Cards = ({questions, setQuestions}) => {
     const [upcomingQuestions, setUpcomingQuestions] = useState([]);
     const [playing, setPlaying] = useState(false);
     const [done, setDone] = useState(false);
+    const [flipped, setFlipped] = useState(false);
 
     useEffect(() => {
         setUpcomingQuestions([...questions]);
@@ -26,6 +27,9 @@ const Cards = ({questions, setQuestions}) => {
     }
 
     const nextQuestion = () => {
+        if (flipped) {
+            setFlipped(false)
+        }
         if (upcomingQuestions.length > 0) {
         setCompletedQuestions([...completedQuestions, currentQuestion]);
         upcomingQuestionFunction(upcomingQuestions);
@@ -43,6 +47,8 @@ const Cards = ({questions, setQuestions}) => {
             handleStart={handleStart}
             currentQuestion={currentQuestion}
             completedQuestions={completedQuestions}
+            flipped={flipped}
+            setFlipped={setFlipped}
             />
         {done ? (<button type="button" onClick={e => setQuestions([])}>Start Over</button>) : (<button type="button" onClick={nextQuestion} disabled={!playing}>
                             Next Question

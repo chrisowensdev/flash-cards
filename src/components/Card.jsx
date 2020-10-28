@@ -1,4 +1,3 @@
-import {useState} from 'react';
 import ReactCardFlip from 'react-card-flip';
 import styled from 'styled-components';
 import Complete from './Complete';
@@ -19,13 +18,21 @@ const StyledCard = styled.div`
     background-color: #254e58;
     color: #EDF5E1;
     max-width: 400px;
-    height: 500px;
+    height: 450px;
     margin: 20px auto;
     position: relative;
     display: flex;
     flex-direction: column;
     align-items:center;
     justify-content: center;
+
+    p {
+        margin: 0 10px;
+    }
+
+    @media (max-width: 420px) {
+        width: 80%;
+    }
 `;
 
 const CardButton = styled.button`
@@ -38,11 +45,16 @@ const CardButton = styled.button`
 const DetailList = styled.li`
     text-align: left;
     margin: 10px;
+    font-size: .85rem;
+`;
+
+const CardContent = styled.p`
+    font-size: .85rem;
 `;
 
 const Card = props => {
-    const { playing, done, handleStart, currentQuestion, completedQuestions } = props;
-    const [flipped, setFlipped] = useState(false);
+    const { playing, done, handleStart, currentQuestion, completedQuestions, flipped, setFlipped } = props;
+    
 
     const _handleFlip = () => {
         setFlipped(!flipped);
@@ -65,7 +77,7 @@ const Card = props => {
                 {!playing ? ("Start the game") : 
                 (
                 <>
-                    {!!currentQuestion ? (<p>{currentQuestion.answer.summary}</p>) : (<p>No more answers</p>)}
+                    {!!currentQuestion ? (<CardContent>{currentQuestion.answer.summary}</CardContent>) : (<p>No more answers</p>)}
                     {!!currentQuestion ? 
                     (   <ul>
                         {currentQuestion.answer.detail.map((list, index) => {

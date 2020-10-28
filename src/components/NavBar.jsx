@@ -12,10 +12,10 @@ const LogButton = styled.button`
     font-family: 'Roboto', sans-serif;
     width: 100px;
     background-color: #fff;
-    padding: 10px;
+    padding: 8px;
     position: absolute;
     right: 12px;
-    top: 12px;
+    top: 18px;
     border: none;
     border-radius: 4px;
 
@@ -83,6 +83,10 @@ const NavTitle = styled.div`
     font-size: 24px;
     color: #fff;
     padding: 20px;
+
+    @media (max-width: 768px) {
+        text-align: left;
+    }
 `;
 
 const NavBar = props => {
