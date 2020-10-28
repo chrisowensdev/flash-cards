@@ -2,6 +2,8 @@ import { javascriptQuestions, randomQuestions, halloweenQuestions } from '../dat
 import styled from 'styled-components';
 import Konami from 'react-konami-code';
 
+import Welcome from './Welcome';
+
 const Button = styled.button`
     width: 100px;
     margin: 20px;
@@ -26,7 +28,7 @@ const SetCategory = props => {
 
     return (
         <>
-        <h1>Welcome</h1>
+        <Welcome />
         <h3>Select Category</h3>
         <Button type="button" onClick={e => _handleClick(javascriptQuestions)}>Javascript</Button>
         <Button type="button" onClick={e => _handleClick(randomQuestions)}>Random</Button>
