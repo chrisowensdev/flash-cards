@@ -79,6 +79,12 @@ const Close = styled.button`
     background-color: #112D32;
 `;
 
+const NavTitle = styled.div`
+    font-size: 24px;
+    color: #fff;
+    padding: 20px;
+`;
+
 const NavBar = props => {
     const { user, setUser, isLoggedIn, setIsLoggedIn } = props;
 
@@ -116,14 +122,20 @@ const NavBar = props => {
         setIsLoggedIn(true);
     }
 
+    const _closeClick = () => {
+        setLoginFormHidden(true);
+        setIsLoggedIn(false);
+    }
+
 
     return (
         <NavBarStyled> 
+            <NavTitle>Flash Cards</NavTitle>
         {!!isLoggedIn && user ? (<LogButton onClick={e => _logoutButton()}>Logout {!!user ? user.name: null}</LogButton>) : 
         (!!loginFormHidden ? <LogButton onClick={e => _loginButton()}>Login</LogButton> : (
             <LoginModal>
             <LoginForm onSubmit={e => _handleSubmit(e)}>
-                <Close>X</Close>
+                <Close onClick={e => _closeClick()}>X</Close>
                 <LoginHeader>Login</LoginHeader>
                 <Input type="text" name="username" onChange={e => _handleUsername(e.target.value)}placeholder="Username" value={username}/>
                 <Input type="password" name="password" onChange={e => _handlePassword(e.target.value)}placeholder="Password" value={password}/>
