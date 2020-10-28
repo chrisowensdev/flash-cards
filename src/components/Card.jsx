@@ -42,11 +42,6 @@ const CardButton = styled.button`
     padding: 5px;
 `;
 
-const DetailList = styled.li`
-    text-align: left;
-    margin: 10px;
-    font-size: .85rem;
-`;
 
 const CardContent = styled.p`
     font-size: .85rem;
@@ -77,16 +72,8 @@ const Card = props => {
                 {!playing ? ("Start the game") : 
                 (
                 <>
-                    {!!currentQuestion ? (<CardContent>{currentQuestion.answer.summary}</CardContent>) : (<p>No more answers</p>)}
-                    {!!currentQuestion ? 
-                    (   <ul>
-                        {currentQuestion.answer.detail.map((list, index) => {
-                            return (
-                                <DetailList key={index}>{list}</DetailList>
-                            )
-                        })}
-                        </ul>
-                    ) : ("")}
+                    {!!currentQuestion ? (<CardContent>{currentQuestion.answer}</CardContent>) : (<p>No more answers</p>)}
+
                     <CardButton type="button" onClick={_handleFlip}>See Question</CardButton>
                 </>
                 )}

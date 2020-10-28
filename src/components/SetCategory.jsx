@@ -1,4 +1,4 @@
-import { javascriptQuestions, randomQuestions, halloweenQuestions } from '../data/data';
+import {useState, useEffect} from 'react';
 import styled from 'styled-components';
 import Konami from 'react-konami-code';
 
@@ -20,21 +20,43 @@ const HalloweenButton = styled.button`
 `;
 
 const SetCategory = props => {
+    const [categoriesArray, setCategoriesArray] = useState([]);
+
     const { setQuestions } = props;
 
-    const _handleClick = (arr) => {
-        setQuestions(arr);
+    useEffect(() => {
+    (async function(){
+        const response = await fetch('http://localhost:3333/api/categories');
+        const categories = await response.json();
+        setCategoriesArray(categories)
+    })();
+    }, [setCategoriesArray]);
+
+    
+
+    const _handleClick = async (id) => {
+        const response = await fetch(`http://localhost:3333/api/cards/category/${id}`);
+        const questionArray = await response.json();
+        setQuestions(questionArray);
     }
 
     return (
         <>
         <Welcome />
         <h3>Select Category</h3>
-        <Button type="button" onClick={e => _handleClick(javascriptQuestions)}>Javascript</Button>
-        <Button type="button" onClick={e => _handleClick(randomQuestions)}>Random</Button>
+        {categoriesArray.map(category => {
+            return (
+            <>
+            {category._id !== '5f99a204d2c09f182dbc7612' ? (<Button type="button" onClick={e => _handleClick(category._id)}>{category.title}</Button>) : null}
+
+
+            </>)
+        })}
         <Konami>
-            <HalloweenButton type="button" onClick={e =>_handleClick(halloweenQuestions)}>Halloween</HalloweenButton>
+            <HalloweenButton type="button" onClick={e =>_handleClick('5f99a204d2c09f182dbc7612')}>Halloween</HalloweenButton>
         </Konami>
+
+        
         </>
     )
 }

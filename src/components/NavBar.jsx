@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { users } from '../data/data';
 import styled from 'styled-components';
 
