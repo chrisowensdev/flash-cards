@@ -19,7 +19,7 @@ I created this app in hopes that I would be able to learn more about certain pro
 
 ## Screenshots
 
-![Walkthrough]('screenshots/walkthrough.gif)
+![Walkthrough](screenshots/walkthrough.gif)
 
 ## Tech/framework used
 
