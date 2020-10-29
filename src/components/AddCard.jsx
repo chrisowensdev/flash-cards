@@ -52,7 +52,7 @@ const AddCategoryButton = styled.div`
     }
 `;
 
-const AddCard = props => {
+const AddCard = ({isLoggedIn}) => {
     const [categoryArray, setCategoriesArray] = useState([])
     const [title, setTitle] = useState('');
     const [question, setQuestion] = useState('');
@@ -111,6 +111,8 @@ const AddCard = props => {
     return (
         
         <>
+        {!!isLoggedIn ? (
+            <>
         <Form onSubmit={e => _handleSubmit(e)}>
         <Input type="text" onChange={e => _handleTitle(e.target.value)} name="title" placeholder="Title" autoComplete="off"/>
         <Input type="text" onChange={e => _handleQuestion(e.target.value)} name="question" placeholder="Question" autoComplete="off"/>
@@ -127,6 +129,14 @@ const AddCard = props => {
         {!showAddCategory ? "" : (<AddCategory setShowAddCategory={setShowAddCategory} setCategoriesArray={setCategoriesArray} categoryArray={categoryArray}/>)}
 
         {!!addedCard ? (addedCard.map(card => <p key={card._id}>Added: {card.title}</p>)) : ("")}
+        </>
+        ) : (
+        <>
+        <h1>Please Login</h1>
+        <Link to="/">Go Back</Link>
+        </>
+        )}
+        
         </>
     )
 }

@@ -20,10 +20,10 @@ function App() {
                     setIsLoggedIn={setIsLoggedIn}
                 />
                 <Route exact path='/'>
-                    <Home />
+                    <Home isLoggedIn={isLoggedIn} />
                 </Route>
                 <Route exact path='/addcard'>
-                    <AddCard />
+                    <AddCard isLoggedIn={isLoggedIn} />
                 </Route>
             </Router>
         </div>

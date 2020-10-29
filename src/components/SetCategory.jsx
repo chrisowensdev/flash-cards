@@ -23,7 +23,7 @@ const HalloweenButton = styled.button`
 const SetCategory = props => {
     const [categoriesArray, setCategoriesArray] = useState([]);
 
-    const { setQuestions } = props;
+    const { setQuestions, isLoggedIn } = props;
 
     useEffect(() => {
     (async function(){
@@ -56,7 +56,8 @@ const SetCategory = props => {
         <Konami>
             <HalloweenButton type="button" onClick={e =>_handleClick('5f99a204d2c09f182dbc7612')}>Halloween</HalloweenButton>
         </Konami>
-        <Link to="/addcard">Add Card</Link>
+        {!!isLoggedIn ? (<Link to="/addcard">Add Card</Link>) : ("")}
+        
         
         </>
     )
