@@ -1,70 +1,50 @@
-# Getting Started with Create React App
+# My Flash Cards
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+React App that uses flash cards to help you study.
 
-## Available Scripts
+## Description
 
-In the project directory, you can run:
+Allows a user to access categories of flash cards to learn and study topics that have already been added. The app also allows users to add categories and cards for themselves to use or others to use.
 
-### `npm start`
+## Motivation
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+I created this app in hopes that I would be able to learn more about certain programming topics while populating the database.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Challenges and Solutions
 
-### `npm test`
+-   Deploying both the front-end and back-end for demo purposes
+    -   I used Netlify to deploy the front-end and Herkou to deploy the API
+-   One of the goals of this project was to create at least one test for the project
+    -   Testing is something that I started out having a hard time with but I really want to become more knowledgable with testing. I was able to get at least one component test working but was able to gain a lot of knowledge on the subject.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Screenshots
 
-### `npm run build`
+![Walkthrough]('screenshots/walkthrough.gif)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Tech/framework used
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+-   React.js
+-   Styled Components
+-   Node.js
+-   Express.js
+-   MongoDB
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Features
 
-### `npm run eject`
+-   Allows users to create a flash card into one of the already created categories or create a new category.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Future Goals
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+-   In the future, I hope to implement:
+    -   Implement Redux or Context to expand and project organization.
+    -   Users to keep track of the own cards and collections.
+    -   True authentication
+    -   Ability to add pictures and diagrams
+    -   Playback functionality for the computer to read the question
+    -   An ability to enter in information and check to see if it is correct against the answer
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## API Reference
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+I created a REST Api deployed to herkou to handle CRUD for the application using Node, Express, and MongoDB.
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+<a href="https://flash-cards-server.heroku.api">flash-cards-server.heroku.api</a>
