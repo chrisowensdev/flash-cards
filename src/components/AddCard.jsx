@@ -1,5 +1,56 @@
 import {useState, useEffect} from 'react';
 import { Link } from 'react-router-dom';
+import styled from 'styled-components';
+
+import AddCategory from './AddCategory';
+
+const Form = styled.form`
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+
+    select {
+        width: 200px;
+        margin: 0 auto;
+        padding: 5px;
+        border-radius: 5px;
+    }
+
+    @media (max-width: 420px) {
+        width: 80%;
+    }
+`;
+const Input = styled.input`
+    margin: 10px;
+    padding: 5px;
+    border-radius: 4px;
+`;
+
+const Button = styled.button`
+    width: 100px;
+    margin: 20px;
+    padding: 10px 5px;
+    background-color: #112D32;
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin: 10px auto;
+`;
+
+const AddCategoryButton = styled.div`
+    background-color: #88BDBC;
+    width: 100px;
+    margin: 5px auto;
+    border: none;
+    cursor: pointer;
+    color: #FFF;
+
+    :hover {
+        outline: none;
+        border: none;
+    }
+`;
 
 const AddCard = props => {
     const [categoryArray, setCategoriesArray] = useState([])
@@ -7,6 +58,8 @@ const AddCard = props => {
     const [question, setQuestion] = useState('');
     const [answer, setAnswer] = useState('');
     const [category, setCategory] = useState('');
+    const [showAddCategory, setShowAddCategory] = useState(false);
+    const [addedCard, setAddedCard] = useState([]);
 
     useEffect(() => {
         (async function(){
@@ -42,28 +95,38 @@ const AddCard = props => {
             category
         };
 
-        fetch('http://localhost:3333/api/cards', {
+        const response = await fetch('http://localhost:3333/api/cards', {
             method: 'POST',
             headers: { 'Content-Type' : 'application/json' },
             body: JSON.stringify(data)
         })
+        const resdata = await response.json();
+        setAddedCard([...addedCard, resdata]);
+    }
+
+    const addCatButton = () => {
+        setShowAddCategory(true);
     }
 
     return (
         
         <>
-        <form onSubmit={e => _handleSubmit(e)}>
-        <input type="text" onChange={e => _handleTitle(e.target.value)} name="title" placeholder="Title"/>
-        <input type="text" onChange={e => _handleQuestion(e.target.value)} name="question" placeholder="Question"/>
-        <input type="text" onChange={e => _handleAnswer(e.target.value)} name="answer" placeholder="Answer"/>
+        <Form onSubmit={e => _handleSubmit(e)}>
+        <Input type="text" onChange={e => _handleTitle(e.target.value)} name="title" placeholder="Title"/>
+        <Input type="text" onChange={e => _handleQuestion(e.target.value)} name="question" placeholder="Question"/>
+        <Input type="text" onChange={e => _handleAnswer(e.target.value)} name="answer" placeholder="Answer"/>
         <select name="categories" id="" onChange={e => _handleCategory(e)}>
             {categoryArray.map(category => (
-                <option value={category._id}>{category.title}</option>
+                <option value={category._id} key={category._id}>{category.title}</option>
             ))}
         </select>
-        <button type="submit">Add Card</button>
-        </form>
+        <AddCategoryButton onClick={e => addCatButton(e)}>Add Category</AddCategoryButton>
+        <Button type="submit">Add Card</Button>
+        </Form>
         <Link to="/">Go Back</Link>
+        {!showAddCategory ? "" : (<AddCategory setShowAddCategory={setShowAddCategory} setCategoriesArray={setCategoriesArray} categoryArray={categoryArray}/>)}
+
+        {!!addedCard ? (addedCard.map(card => <p key={card._id}>Added: {card.title}</p>)) : ("")}
         </>
     )
 }

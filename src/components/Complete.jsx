@@ -11,8 +11,8 @@ const Complete = props => {
         <>
         <h1>Summary</h1>
         <ul>
-            {questions.map(ques => {
-                return (<SummaryList key={ques.id}>{ques.question}</SummaryList>)
+            {questions.map((ques, index) => {
+                return (<SummaryList key={index}>{ques.question}</SummaryList>)
             })}
         </ul>
         </>

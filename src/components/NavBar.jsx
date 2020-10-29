@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { users } from '../data/data';
 import styled from 'styled-components';
 
@@ -10,14 +10,17 @@ const NavBarStyled = styled.div`
 
 const LogButton = styled.button`
     font-family: 'Roboto', sans-serif;
+    font-weight: bolder;
+    text-transform: uppercase;
     width: 100px;
-    background-color: #fff;
+    background-color: #112D32;
     padding: 8px;
     position: absolute;
     right: 12px;
     top: 18px;
-    border: none;
+    border: 2px solid #fff;
     border-radius: 4px;
+    color: #fff;
 
     &:active {
         outline: none;
@@ -40,7 +43,7 @@ const LoginModal = styled.div`
 
 const LoginForm = styled.form`
     height: 300px;
-    width: 400px;
+    width: 300px;
     background-color: #112D32;
     display: flex;
     flex-direction: column;
@@ -69,7 +72,7 @@ const Button = styled.button`
     border: 3px solid #fff;
 `;
 
-const Close = styled.button`
+const Close = styled.div`
     font-size: 18px;
     color: white;
     position: absolute;
@@ -141,7 +144,7 @@ const NavBar = props => {
             <LoginForm onSubmit={e => _handleSubmit(e)}>
                 <Close onClick={e => _closeClick()}>X</Close>
                 <LoginHeader>Login</LoginHeader>
-                <Input type="text" name="username" onChange={e => _handleUsername(e.target.value)}placeholder="Username" data-testid="messageText" value={username}/>
+                <Input type="text" name="username" onChange={e => _handleUsername(e.target.value)}placeholder="Username" data-testid="messageText" value={username} autoComplete="off"/>
                 <Input type="password" name="password" onChange={e => _handlePassword(e.target.value)}placeholder="Password" value={password}/>
                 <Button type="submit" data-testid="sendButton" >Login</Button>
             </LoginForm>

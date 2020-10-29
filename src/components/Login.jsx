@@ -39,7 +39,7 @@ const Login = ({setUser, setIsLoggedIn}) => {
     return (
         <>
         <LoginForm>
-            <Input type="text" data-testid="messageText" value={inputText} onChange={(e) => _handleUsername(e.target.value)} placeholder="Username"/>
+            <Input type="text" data-testid="messageText" value={inputText} onChange={(e) => _handleUsername(e.target.value)} placeholder="Username" autoComplete="off"/>
             <Input type="password" data-testid="password" value={password} onChange={(e) => _handlePassword(e.target.value)} placeholder="Password"/>
             <button type="button" data-testid="sendButton" onClick={_handleClick}>Send</button>
         </LoginForm>

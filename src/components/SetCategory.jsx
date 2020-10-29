@@ -1,6 +1,7 @@
 import {useState, useEffect} from 'react';
 import styled from 'styled-components';
 import Konami from 'react-konami-code';
+import { Link } from 'react-router-dom';
 
 import Welcome from './Welcome';
 
@@ -46,16 +47,16 @@ const SetCategory = props => {
         <h3>Select Category</h3>
         {categoriesArray.map(category => {
             return (
-            <>
+            <div key={category._id}>
             {category._id !== '5f99a204d2c09f182dbc7612' ? (<Button type="button" onClick={e => _handleClick(category._id)}>{category.title}</Button>) : null}
 
 
-            </>)
+            </div>)
         })}
         <Konami>
             <HalloweenButton type="button" onClick={e =>_handleClick('5f99a204d2c09f182dbc7612')}>Halloween</HalloweenButton>
         </Konami>
-
+        <Link to="/addcard">Add Card</Link>
         
         </>
     )
