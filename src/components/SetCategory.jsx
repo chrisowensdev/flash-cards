@@ -27,7 +27,7 @@ const SetCategory = props => {
 
     useEffect(() => {
     (async function(){
-        const response = await fetch('http://localhost:3333/api/categories');
+        const response = await fetch('https://flash-cards-server.herokuapp.com/api/categories');
         const categories = await response.json();
         setCategoriesArray(categories)
     })();
@@ -36,7 +36,7 @@ const SetCategory = props => {
     
 
     const _handleClick = async (id) => {
-        const response = await fetch(`http://localhost:3333/api/cards/category/${id}`);
+        const response = await fetch(`https://flash-cards-server.herokuapp.com/api/cards/category/${id}`);
         const questionArray = await response.json();
         setQuestions(questionArray);
     }

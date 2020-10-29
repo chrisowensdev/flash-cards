@@ -63,7 +63,7 @@ const AddCard = props => {
 
     useEffect(() => {
         (async function(){
-            const response = await fetch('http://localhost:3333/api/categories');
+            const response = await fetch('https://flash-cards-server.herokuapp.com/api/categories');
             const categories = await response.json();
             setCategoriesArray(categories)
             setCategory(categories[0]._id);
@@ -95,7 +95,7 @@ const AddCard = props => {
             category
         };
 
-        const response = await fetch('http://localhost:3333/api/cards', {
+        const response = await fetch('https://flash-cards-server.herokuapp.com/api/cards', {
             method: 'POST',
             headers: { 'Content-Type' : 'application/json' },
             body: JSON.stringify(data)
@@ -112,9 +112,9 @@ const AddCard = props => {
         
         <>
         <Form onSubmit={e => _handleSubmit(e)}>
-        <Input type="text" onChange={e => _handleTitle(e.target.value)} name="title" placeholder="Title"/>
-        <Input type="text" onChange={e => _handleQuestion(e.target.value)} name="question" placeholder="Question"/>
-        <Input type="text" onChange={e => _handleAnswer(e.target.value)} name="answer" placeholder="Answer"/>
+        <Input type="text" onChange={e => _handleTitle(e.target.value)} name="title" placeholder="Title" autoComplete="off"/>
+        <Input type="text" onChange={e => _handleQuestion(e.target.value)} name="question" placeholder="Question" autoComplete="off"/>
+        <Input type="text" onChange={e => _handleAnswer(e.target.value)} name="answer" placeholder="Answer" autoComplete="off"/>
         <select name="categories" id="" onChange={e => _handleCategory(e)}>
             {categoryArray.map(category => (
                 <option value={category._id} key={category._id}>{category.title}</option>
