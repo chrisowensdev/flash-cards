@@ -79,7 +79,7 @@ const AddCategory = ({setShowAddCategory, setCategoriesArray, categoryArray}) =>
             description
         };
 
-        const response = await fetch('https://flash-cards-server.herokuapp.com/api/categories', {
+        const response = await fetch(`${process.env.REACT_APP_API}/api/categories`, {
             method: 'POST',
             headers: { 'Content-Type' : 'application/json' },
             body: JSON.stringify(data)

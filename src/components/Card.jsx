@@ -58,6 +58,7 @@ const Card = props => {
     return (
         <ReactCardFlip isFlipped={flipped} flipDirection="vertical">
             <StyledCard>
+                
                 {!playing ? 
                 (<StartButton type="button" onClick={handleStart}>Start</StartButton>) : 
                 (
