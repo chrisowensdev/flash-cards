@@ -171,7 +171,7 @@ export const users = [
         id: 1,
         name: 'Chris',
         username: 'chris123',
-        password: 'chris123',
+        password: '!thisisme321',
     },
     {
         id: 2,
