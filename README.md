@@ -12,10 +12,10 @@ I created this app in hopes that I would be able to learn more about certain pro
 
 ## Challenges and Solutions
 
--   Deploying both the front-end and back-end for demo purposes
-    -   I used Netlify to deploy the front-end and Herkou to deploy the API
--   One of the goals of this project was to create at least one test for the project
-    -   Testing is something that I started out having a hard time with but I really want to become more knowledgable with testing. I was able to get at least one component test working but was able to gain a lot of knowledge on the subject.
+-   Deploying both the front-end and back-end for demo purposes:
+    -   I used Netlify to deploy the front-end and Heroku to deploy the API
+-   One of the goals of this project was to create at least one test for the project:
+    -   Testing is something that I started out having a hard time with, but I really want to become more knowledgable with testing. I was able to get at least one component test working and was able to gain a lot of knowledge on the subject.
 
 ## Screenshots
 
@@ -37,7 +37,7 @@ I created this app in hopes that I would be able to learn more about certain pro
 
 -   In the future, I hope to implement:
     -   Implement Redux or Context to expand and project organization.
-    -   Users to keep track of the own cards and collections.
+    -   Users to keep track of their own cards and collections.
     -   True authentication
     -   Ability to add pictures and diagrams
     -   Playback functionality for the computer to read the question
@@ -45,7 +45,7 @@ I created this app in hopes that I would be able to learn more about certain pro
 
 ## API Reference
 
-I created a REST Api deployed to herkou to handle CRUD for the application using Node, Express, and MongoDB.
+I created a REST Api deployed to Heroku to handle CRUD for the application using Node, Express, and MongoDB.
 
 <a href="https://flash-cards-server.heroku.api">flash-cards-server.heroku.api</a>
 

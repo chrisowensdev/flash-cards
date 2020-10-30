@@ -1,55 +1,62 @@
 import { useState } from 'react';
 import { users } from '../data/data';
 import styled from 'styled-components';
+import logo from '../images/logo.png';
 
 const NavBarStyled = styled.div`
-    height: 100px;
     background-color: #112D32;
+    height: 100px;
     position: relative;
 `;
 
 const LogButton = styled.button`
-    font-family: 'Roboto', sans-serif;
-    font-weight: bolder;
-    text-transform: uppercase;
-    width: 100px;
     background-color: #112D32;
-    padding: 8px;
-    position: absolute;
-    right: 12px;
-    top: 18px;
     border: 2px solid #fff;
     border-radius: 4px;
     color: #fff;
-
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bolder;
+    letter-spacing: 1px;
+    padding: 8px;
+    position: absolute;
+    right: 12px;
+    text-transform: uppercase;
+    top: 18px;
+    width: 100px;
+    
     &:active {
         outline: none;
+    }
+    &:hover {
+        background-color: #e6e7e8;
+        color: #112D32;
     }
 `;
 
 const LoginModal = styled.div`
+    align-items: center;
     background-color: rgba(0,0,0,0.6);
-    position: fixed;
-    top: 0;
-    right: 0;
     bottom: 0;
-    left: 0;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    left: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
     z-index: 10;
 `;
 
 const LoginForm = styled.form`
-    height: 300px;
-    width: 300px;
+    align-items: center;
     background-color: #112D32;
     display: flex;
     flex-direction: column;
+    height: 300px;
     justify-content: center;
-    align-items: center;
     position: relative;
+    width: 300px;
 `;
 
 const Input = styled.input`
@@ -62,33 +69,31 @@ const LoginHeader = styled.h2`
 `;
 
 const Button = styled.button`
-    width: 100px;
+    background-color: #112D32;
+    border: 3px solid #fff;
+    color: white;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
     margin: 20px;
     padding: 10px 5px;
-    background-color: #112D32;
-    color: white;
-    border: none;
-    cursor: pointer;
-    border: 3px solid #fff;
+    width: 100px;
 `;
 
 const Close = styled.div`
-    font-size: 18px;
+    background-color: #112D32;
+    border: none;
     color: white;
+    font-size: 18px;
     position: absolute;
     right: 5px;
     top: 5px;
-    border: none;
-    background-color: #112D32;
 `;
 
-const NavTitle = styled.div`
-    font-size: 24px;
-    color: #fff;
-    padding: 20px;
+const Image = styled.img`
+    height: 100px;
 
     @media (max-width: 768px) {
-        text-align: left;
+        float: left ;
     }
 `;
 
@@ -136,8 +141,9 @@ const NavBar = props => {
 
 
     return (
-        <NavBarStyled> 
-            <NavTitle>Flash Cards</NavTitle>
+        <NavBarStyled>
+            <Image src={logo} alt="logo"/> 
+            {/* <NavTitle>Flash Cards</NavTitle> */}
         {!!isLoggedIn && user ? (<LogButton onClick={e => _logoutButton()}>Logout {!!user ? user.name: null}</LogButton>) : 
         (!!loginFormHidden ? <LogButton onClick={e => _loginButton()}>Login</LogButton> : (
             <LoginModal>

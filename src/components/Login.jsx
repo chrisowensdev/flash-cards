@@ -3,8 +3,8 @@ import styled from 'styled-components';
 import { users } from '../data/data';
 
 const LoginForm = styled.div`
-    width: 300px;
     margin: 0 auto;
+    width: 300px;
 `;
 
 const Input = styled.input`

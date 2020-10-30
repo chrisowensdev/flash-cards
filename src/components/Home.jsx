@@ -7,14 +7,11 @@ const Home = ({isLoggedIn}) => {
 
     return (
         <>
-        {questions.length === 0 ? (
-            <SetCategory setQuestions={setQuestions} isLoggedIn={isLoggedIn}/>
-        ) : (
-            <Card
-                questions={questions}
-                setQuestions={setQuestions}
-            />
-        )}
+            {questions.length === 0 ? (
+                <SetCategory setQuestions={setQuestions} isLoggedIn={isLoggedIn}/>
+            ) : (
+            <Card questions={questions} setQuestions={setQuestions}/>
+            )}
         </>
     )
 }

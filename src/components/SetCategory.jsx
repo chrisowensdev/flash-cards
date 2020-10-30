@@ -6,18 +6,41 @@ import { Link } from 'react-router-dom';
 import Welcome from './Welcome';
 
 const Button = styled.button`
-    width: 100px;
+    background-color: #112D32;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+    letter-spacing: .4px;
     margin: 20px;
     padding: 10px 5px;
-    background-color: #112D32;
-    color: white;
-    border: none;
-    cursor: pointer;
+    width: 100px;
+`;
+
+const ButtonContainer = styled.div`
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 0 auto;
+    width: 500px;
+
+    @media (max-width: 768px) {
+        width: 80%;
+    }
 `;
 
 const HalloweenButton = styled.button`
     background-color: #000;
+    border: none;
+    border-radius: 4px;
     color: orange;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+    letter-spacing: .4px;
+    margin: 20px;
+    padding: 10px 5px;
+    width: 100px;
 `;
 
 const SetCategory = props => {
@@ -45,17 +68,22 @@ const SetCategory = props => {
         <>
         <Welcome />
         <h3>Select Category</h3>
-        {categoriesArray.map(category => {
-            return (
-            <div key={category._id}>
-            {category._id !== '5f99a204d2c09f182dbc7612' ? (<Button type="button" onClick={e => _handleClick(category._id)}>{category.title}</Button>) : null}
+        <ButtonContainer>
+            {categoriesArray.map(category => {
+                return (
+                    <div key={category._id}>
+                        {category._id !== '5f99a204d2c09f182dbc7612' ? (<Button type="button" onClick={e => _handleClick(category._id)}>{category.title}</Button>) : null}
+                    </div>)
+                })
+            }
+        </ButtonContainer>
 
-
-            </div>)
-        })}
         <Konami>
-            <HalloweenButton type="button" onClick={e =>_handleClick('5f99a204d2c09f182dbc7612')}>Halloween</HalloweenButton>
+            <HalloweenButton type="button" onClick={e =>_handleClick('5f99a204d2c09f182dbc7612')}>
+                Halloween
+            </HalloweenButton>
         </Konami>
+        
         {!!isLoggedIn ? (<Link to="/addcard">Add Card</Link>) : ("")}
         
         
