@@ -118,9 +118,15 @@ const AddCard = ({isLoggedIn}) => {
         <Input type="text" onChange={e => _handleQuestion(e.target.value)} name="question" placeholder="Question" autoComplete="off"/>
         <Input type="text" onChange={e => _handleAnswer(e.target.value)} name="answer" placeholder="Answer" autoComplete="off"/>
         <select name="categories" id="" onChange={e => _handleCategory(e)}>
-            {categoryArray.map(category => (
-                <option value={category._id} key={category._id}>{category.title}</option>
-            ))}
+            {categoryArray.map(category => {
+                return(
+                    <>
+                    {category._id !== '5f99a204d2c09f182dbc7612' ?
+                    <option value={category._id} key={category._id}>{category.title}</option> : null}
+                    </>
+                )
+                
+            })}
         </select>
         <AddCategoryButton onClick={e => addCatButton(e)}>Add Category</AddCategoryButton>
         <Button type="submit">Add Card</Button>
