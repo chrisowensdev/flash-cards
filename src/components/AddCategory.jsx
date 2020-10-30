@@ -47,12 +47,12 @@ cursor: pointer;
 border: 3px solid #fff;
 `;
 
-const Close = styled.button`
+const Close = styled.div`
 cursor: pointer;
 font-size: 18px;
 color: white;
 position: absolute;
-right: 5px;
+right: 10px;
 top: 5px;
 border: none;
 background-color: #112D32;

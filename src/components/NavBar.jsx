@@ -83,9 +83,10 @@ const Close = styled.div`
     background-color: #112D32;
     border: none;
     color: white;
+    cursor: pointer;
     font-size: 18px;
     position: absolute;
-    right: 5px;
+    right: 10px;
     top: 5px;
 `;
 
