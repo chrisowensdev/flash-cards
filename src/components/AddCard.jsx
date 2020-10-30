@@ -39,12 +39,12 @@ const Button = styled.button`
 `;
 
 const AddCategoryButton = styled.div`
-    background-color: #88BDBC;
+    background-color: #e6e7e8;
     width: 100px;
     margin: 5px auto;
     border: none;
     cursor: pointer;
-    color: #FFF;
+    color: #112D32;
 
     :hover {
         outline: none;
