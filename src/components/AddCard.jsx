@@ -95,6 +95,10 @@ const AddCard = ({isLoggedIn}) => {
             category
         };
 
+        setTitle('');
+        setQuestion('');
+        setAnswer('');
+
         const response = await fetch(`${process.env.REACT_APP_API}/api/cards`, {
             method: 'POST',
             headers: { 'Content-Type' : 'application/json' },
@@ -114,9 +118,9 @@ const AddCard = ({isLoggedIn}) => {
         {!!isLoggedIn ? (
             <>
         <Form onSubmit={e => _handleSubmit(e)}>
-        <Input type="text" onChange={e => _handleTitle(e.target.value)} name="title" placeholder="Title" autoComplete="off"/>
-        <Input type="text" onChange={e => _handleQuestion(e.target.value)} name="question" placeholder="Question" autoComplete="off"/>
-        <Input type="text" onChange={e => _handleAnswer(e.target.value)} name="answer" placeholder="Answer" autoComplete="off"/>
+        <Input type="text" onChange={e => _handleTitle(e.target.value)} name="title" placeholder="Title" autoComplete="off" value={title}/>
+        <Input type="text" onChange={e => _handleQuestion(e.target.value)} name="question" placeholder="Question" autoComplete="off" value={question}/>
+        <Input type="text" onChange={e => _handleAnswer(e.target.value)} name="answer" placeholder="Answer" autoComplete="off" value={answer}/>
         <select name="categories" id="" onChange={e => _handleCategory(e)}>
             {categoryArray.map(category => {
                 return(
