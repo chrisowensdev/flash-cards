@@ -47,5 +47,11 @@
 }
 
 a {
+  font-weight: bold;
   text-decoration: none;
+  color: #112D32
+}
+
+a:visited {
+  color: #112D32
 }
